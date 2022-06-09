@@ -31,12 +31,17 @@ async function searchMovie() {
 }
 
 async function getFilterMovies() {
-  const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${input.value}&language=en-US&page=1`).then( result => result.json())
+  
+  const response = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${input.value}&language=en-US&page=1`,{
+    mode:'cors'
+  }).then( result => result.json())
     return response.results
 }
 
 async function getPopularMovies() {
-  const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`).then( result => result.json());
+  const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=pt-BR&page=1`,{
+    mode:'cors'
+  }).then( result => result.json());
   return response.results
 } 
 
